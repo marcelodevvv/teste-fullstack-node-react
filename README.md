@@ -4,6 +4,8 @@ Leia primeiro todo o projeto, faça sua estimativa de horas para o desenvolvimen
 
 Forke este projeto, faça o desenvolvimento e quando finalizar faça um PR aqui. Envie um email com o título `[Teste Fullstack] Finalizado` para rh@4.events com o link do seu PR.
 
+Se você não sabe o que é fazer um "Forke" ou um "PR", pequise, valorizamos muito proatividade.
+
 **Lembre-se: atualize este README informando como instalar e executar seu projeto.**
 
 ## Missão backend
