@@ -61,6 +61,10 @@ Desenvolver uma **UI (User Interface)** de acordo com o desenho que está na pas
 
 ### Dica
 
+Tente pensar um pouco fora da caixa;
+
+Utilizar Context API ou Redux será um diferencial;
+
 Utilize algum framework para auxiliar no desenvolvimento da interface, por exemplo:
 
 - https://getmdl.io/
