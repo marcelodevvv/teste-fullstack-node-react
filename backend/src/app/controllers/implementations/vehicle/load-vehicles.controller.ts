@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
 import { IController } from '../../protocols/controller';
-import { ILoadVehicle } from '../../../usecases/protocols/load-vehicles';
+import { ILoadVehicles } from '../../../usecases/protocols/load-vehicles';
 
 export class LoadVehiclesController implements IController {
-	constructor(private readonly loadVehicles: ILoadVehicle) {}
+	constructor(private readonly loadVehicles: ILoadVehicles) {}
 
 	async handle(request: Request, response: Response) {
 		try {

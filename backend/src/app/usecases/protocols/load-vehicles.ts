@@ -1,5 +1,5 @@
 import { VehicleModel } from '../models/vehicle-model';
 
-export interface ILoadVehicle {
+export interface ILoadVehicles {
 	execute(): Promise<VehicleModel[]>;
 }

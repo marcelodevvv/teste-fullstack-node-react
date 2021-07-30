@@ -1,8 +1,8 @@
 import { VehicleModel } from '../models/vehicle-model';
 import { ILoadVehiclesRepository } from '../../repositories/protocols/vehicle/load-vehicles-repository';
-import { ILoadVehicle } from '../protocols/load-vehicles';
+import { ILoadVehicles } from '../protocols/load-vehicles';
 
-export class DbLoadVehicles implements ILoadVehicle {
+export class DbLoadVehicles implements ILoadVehicles {
 	constructor(
 		private readonly loadVehiclesRepository: ILoadVehiclesRepository
 	) {}
