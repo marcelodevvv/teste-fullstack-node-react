@@ -1,6 +1,6 @@
-import { Request, Response } from 'express';
 import { IController } from '../../protocols/controller';
-import { ICreateVehicle } from '../../../usecases/protocols/create-vehicle';
+import { ICreateVehicle } from '../../../usecases/protocols';
+import { Request, Response } from 'express';
 
 export class CreateVehicleController implements IController {
 	constructor(private readonly createVehicle: ICreateVehicle) {}

@@ -1,4 +1,4 @@
-import { VehicleModel } from '../models/vehicle-model';
+import { VehicleModel } from '../models';
 
 export type CreateVehicleParams = Omit<VehicleModel, 'id'>;
 

@@ -1,7 +1,7 @@
-import { IController } from '../../controllers/protocols/controller';
-import { CreateVehicleController } from '../../controllers/implementations/vehicle/create-vehicle-controller';
-import { DbCreateVehicle } from '../../usecases/implementations/db-create-vehicle';
-import { VehicleRepository } from '../../repositories/implementations/vehicle-repository';
+import { IController } from '../../controllers/protocols';
+import { CreateVehicleController } from '../../controllers/implementations';
+import { DbCreateVehicle } from '../../usecases/implementations';
+import { VehicleRepository } from '../../repositories/implementations';
 
 export function CreateVehicleControllerFactory(): IController {
 	const vehicleRepository = new VehicleRepository();

@@ -1,6 +1,6 @@
-import { IFindVehiclesRepository } from '../../repositories/protocols/vehicle/find-vehicles-repository';
-import { VehicleModel } from '../models/vehicle-model';
-import { IFindVehicles } from '../protocols/find-vehicles';
+import { VehicleModel } from '../models';
+import { IFindVehicles } from '../protocols';
+import { IFindVehiclesRepository } from '../../repositories/protocols';
 
 export class DbFindVehicles implements IFindVehicles {
 	constructor(

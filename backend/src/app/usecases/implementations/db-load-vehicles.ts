@@ -1,6 +1,6 @@
-import { VehicleModel } from '../models/vehicle-model';
-import { ILoadVehiclesRepository } from '../../repositories/protocols/vehicle/load-vehicles-repository';
-import { ILoadVehicles } from '../protocols/load-vehicles';
+import { VehicleModel } from '../models';
+import { ILoadVehicles } from '../protocols';
+import { ILoadVehiclesRepository } from '../../repositories/protocols';
 
 export class DbLoadVehicles implements ILoadVehicles {
 	constructor(

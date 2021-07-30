@@ -1,6 +1,6 @@
-import { Request, Response } from 'express';
 import { IController } from '../../protocols/controller';
-import { ILoadVehicles } from '../../../usecases/protocols/load-vehicles';
+import { ILoadVehicles } from '../../../usecases/protocols';
+import { Request, Response } from 'express';
 
 export class LoadVehiclesController implements IController {
 	constructor(private readonly loadVehicles: ILoadVehicles) {}

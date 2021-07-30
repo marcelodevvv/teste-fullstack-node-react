@@ -1,10 +1,12 @@
-import { VehicleModel } from '../../usecases/models/vehicle-model';
-import { CreateVehicleParams } from '../../usecases/protocols/create-vehicle';
-import { IAddVehicleRepository } from '../protocols/vehicle/add-vehicle-repository';
+import {
+	IAddVehicleRepository,
+	ILoadVehiclesRepository,
+	IFindVehiclesRepository,
+} from '../protocols';
+import { Vehicle } from '../../entities';
+import { VehicleModel } from '../../usecases/models';
+import { CreateVehicleParams } from '../../usecases/protocols';
 import { getRepository, Like } from 'typeorm';
-import { Vehicle } from '../../entities/vehicle';
-import { ILoadVehiclesRepository } from '../protocols/vehicle/load-vehicles-repository';
-import { IFindVehiclesRepository } from '../protocols/vehicle/find-vehicles-repository';
 
 export class VehicleRepository
 	implements

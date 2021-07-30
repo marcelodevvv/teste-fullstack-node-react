@@ -1,9 +1,6 @@
-import { VehicleModel } from '../models/vehicle-model';
-import {
-	CreateVehicleParams,
-	ICreateVehicle,
-} from '../protocols/create-vehicle';
-import { IAddVehicleRepository } from '../../repositories/protocols/vehicle/add-vehicle-repository';
+import { VehicleModel } from '../models';
+import { CreateVehicleParams, ICreateVehicle } from '../protocols';
+import { IAddVehicleRepository } from '../../repositories/protocols';
 
 export class DbCreateVehicle implements ICreateVehicle {
 	constructor(private readonly addVehicleRepository: IAddVehicleRepository) {}

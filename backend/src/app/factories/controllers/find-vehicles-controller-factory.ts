@@ -1,7 +1,7 @@
-import { FindVehiclesController } from '../../controllers/implementations/vehicle/find-vehicles-controller';
-import { IController } from '../../controllers/protocols/controller';
-import { VehicleRepository } from '../../repositories/implementations/vehicle-repository';
-import { DbFindVehicles } from '../../usecases/implementations/db-find-vehicles';
+import { FindVehiclesController } from '../../controllers/implementations';
+import { IController } from '../../controllers/protocols';
+import { VehicleRepository } from '../../repositories/implementations';
+import { DbFindVehicles } from '../../usecases/implementations';
 
 export function FindVehiclesControllerFactory(): IController {
 	const vehicleRepository = new VehicleRepository();

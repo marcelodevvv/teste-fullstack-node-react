@@ -1,6 +1,6 @@
-import { Request, Response } from 'express';
 import { IController } from '../../protocols/controller';
-import { IFindVehicles } from '../../../usecases/protocols/find-vehicles';
+import { IFindVehicles } from '../../../usecases/protocols';
+import { Request, Response } from 'express';
 
 export class FindVehiclesController implements IController {
 	constructor(private readonly findVehicles: IFindVehicles) {}
