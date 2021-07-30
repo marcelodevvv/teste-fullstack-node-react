@@ -25,10 +25,7 @@ export class Vehicle {
 	@Column('text')
 	description: string;
 
-	@CreateDateColumn({
-		type: 'timestamp',
-		default: () => 'CURRENT_TIMESTAMP(6)',
-	})
+	@CreateDateColumn()
 	created_at: Date;
 
 	constructor(data: Omit<Vehicle, 'id' | 'created_at'>) {

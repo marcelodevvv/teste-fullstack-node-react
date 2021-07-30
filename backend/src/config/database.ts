@@ -1,16 +1,24 @@
-require('dotenv').config({ path: '.env.dev' });
+const envs = {
+	production: '.env',
+	development: '.env.dev',
+	test: '.env.test',
+};
+
+require('dotenv').config({
+	path: envs[process.env.NODE_ENV || 'development'],
+});
 
 import { ConnectionOptions } from 'typeorm';
 
 const databaseConfig: ConnectionOptions = {
-	type: 'mysql',
-	host: process.env.HOST,
+	type: process.env.DB_TYPE,
+	host: process.env.DB_HOST,
 	port: 3306,
 	username: process.env.DB_USER,
 	password: process.env.DB_PASSWORD,
-	database: process.env.DB_NAME,
+	database: process.env.DB_DATABASE,
 	entities: ['src/app/entities/*.ts'],
 	synchronize: true,
-};
+} as ConnectionOptions;
 
 export { databaseConfig };
