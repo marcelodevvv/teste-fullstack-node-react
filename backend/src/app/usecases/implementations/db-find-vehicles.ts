@@ -2,7 +2,7 @@ import { IFindVehiclesRepository } from '../../repositories/protocols/vehicle/fi
 import { VehicleModel } from '../models/vehicle-model';
 import { IFindVehicles } from '../protocols/find-vehicles';
 
-export class DbFindehicles implements IFindVehicles {
+export class DbFindVehicles implements IFindVehicles {
 	constructor(
 		private readonly findVehiclesRepository: IFindVehiclesRepository
 	) {}
