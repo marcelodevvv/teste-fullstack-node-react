@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
-import { Controller } from '../protocols/controller';
+import { IController } from '../protocols/controller';
 import { ICreateVehicle } from '../../usecases/protocols/create-vehicle';
 
-export class CreateVehicleController implements Controller {
+export class CreateVehicleController implements IController {
 	constructor(private readonly createVehicle: ICreateVehicle) {}
 
 	async handle(request: Request, response: Response) {
