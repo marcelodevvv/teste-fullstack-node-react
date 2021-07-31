@@ -1,13 +1,22 @@
+import { useEffect } from 'react';
 import { AppProps } from 'next/app';
-import { ChakraProvider } from '@chakra-ui/react';
-import { theme } from '../styles/theme';
+import { ThemeProvider } from 'styled-components';
 
-function MyApp({ Component, pageProps }: AppProps) {
+import { GlobalStyle } from '../styles/global';
+import theme from '../styles/theme';
+
+export default function App({ Component, pageProps }: AppProps) {
+	useEffect(() => {
+		const jssStyles = document.querySelector('#jss-server-side');
+		if (jssStyles) {
+			jssStyles.parentNode.removeChild(jssStyles);
+		}
+	}, []);
+
 	return (
-		<ChakraProvider theme={theme}>
+		<ThemeProvider theme={theme}>
 			<Component {...pageProps} />
-		</ChakraProvider>
+			<GlobalStyle />
+		</ThemeProvider>
 	);
 }
-
-export default MyApp;
