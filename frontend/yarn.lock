@@ -999,6 +999,11 @@ css-color-keywords@^1.0.0:
   resolved "https://registry.yarnpkg.com/css-color-keywords/-/css-color-keywords-1.0.0.tgz#fea2616dc676b2962686b3af8dbdbe180b244e05"
   integrity sha1-/qJhbcZ2spYmhrOvjb2+GAskTgU=
 
+css-supports@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/css-supports/-/css-supports-0.1.1.tgz#9ae201f952beb65f00c5e4b249ebce8ef58a013d"
+  integrity sha1-muIB+VK+tl8AxeSySevOjvWKAT0=
+
 css-to-react-native@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/css-to-react-native/-/css-to-react-native-3.0.0.tgz#62dbe678072a824a689bcfee011fc96e02a7d756"
@@ -2837,6 +2842,14 @@ react-refresh@0.8.3:
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.8.3.tgz#721d4657672d400c5e3c75d063c4a85fb2d5d68f"
   integrity sha512-X8jZHc7nCMjaCqoU+V2I0cOhNW+QMBwSUkeXnTi8IPe6zaRWfn60ZzvFDZqWPfmSJfjub7dDW1SP0jaHWLu/hg==
 
+react-sticky-fill@^0.8.4:
+  version "0.8.4"
+  resolved "https://registry.yarnpkg.com/react-sticky-fill/-/react-sticky-fill-0.8.4.tgz#8870a71b1c356b5caf2c451ff0010fdfa0de6111"
+  integrity sha512-EQVDR/iN0KP89Mogon69KgCVbfRQxQe/73G3gzMW7ZfDOv1khQjpvn+0FVvgTKcp/AjJz/T4QhNZp2/oNiQdww==
+  dependencies:
+    css-supports "^0.1.1"
+    stickyfill "^1.1.1"
+
 react-transition-group@^4.4.0:
   version "4.4.2"
   resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-4.4.2.tgz#8b59a56f09ced7b55cbd53c36768b922890d5470"
@@ -3139,6 +3152,16 @@ stacktrace-parser@0.1.10:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/statuses/-/statuses-1.5.0.tgz#161c7dac177659fd9811f43771fa99381478628c"
   integrity sha1-Fhx9rBd2Wf2YEfQ3cfqZOBR4Yow=
+
+stickyfill@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/stickyfill/-/stickyfill-1.1.1.tgz#39413fee9d025c74a7e59ceecb23784cc0f17f02"
+  integrity sha1-OUE/7p0CXHSn5ZzuyyN4TMDxfwI=
+
+stickyfill@^1.1.1-strict:
+  version "1.1.1-strict"
+  resolved "https://registry.yarnpkg.com/stickyfill/-/stickyfill-1.1.1-strict.tgz#6302ea8538e4e6abc335b114e5135d55a9df0d59"
+  integrity sha512-sATIqk4FvUQqSEWAVVWHUJoH98cKQ5REqDl5y8/Ij5Yj7tCLv+Y2gj/ioMcYuvUbtPL8j4kWmPTARR6fiDJNgQ==
 
 stream-browserify@3.0.0:
   version "3.0.0"
