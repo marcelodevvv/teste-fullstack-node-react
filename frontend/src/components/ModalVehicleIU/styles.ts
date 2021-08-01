@@ -84,6 +84,9 @@ export const TextField = withStyles({
 		'& .MuiInput-underline:after': {
 			borderBottomColor: styledTheme.colors.gray[800],
 		},
+		'& .MuiInput-underline.Mui-error:after': {
+			borderBottomColor: '#f44336',
+		},
 		'& .MuiOutlinedInput-root': {
 			'& fieldset': {
 				borderColor: styledTheme.colors.gray[600],

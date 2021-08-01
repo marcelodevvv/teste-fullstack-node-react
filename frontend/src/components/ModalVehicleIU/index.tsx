@@ -17,6 +17,7 @@ const initialFormState = {
 
 export function ModalVehicleIU() {
 	const [formState, setFormState] = useState(initialFormState);
+	const [formErrors, setFormErrors] = useState({});
 	const { IUMode, setInsertUpdateMode, selectedVehicle, vehicles, saveVehicle } =
 		useVehicle();
 
@@ -35,12 +36,15 @@ export function ModalVehicleIU() {
 	}, [IUMode, selectedVehicle, vehicles]);
 
 	useEffect(() => {
-		if (editingVehicle) {
-			setFormState({ ...editingVehicle });
-		} else {
+		if (!open) {
 			setFormState(initialFormState);
+			setFormErrors({});
 		}
-	}, [editingVehicle]);
+
+		if (open && editingVehicle) {
+			setFormState({ ...editingVehicle });
+		}
+	}, [editingVehicle, open]);
 
 	function handleCloseModal() {
 		setInsertUpdateMode(null);
@@ -48,6 +52,23 @@ export function ModalVehicleIU() {
 
 	async function handleSubmit(event: FormEvent) {
 		event.preventDefault();
+
+		const requiredFields = ['vehicle', 'brand', 'year', 'description'];
+
+		const formErrors = requiredFields.reduce<{ [key: string]: boolean }>(
+			(formErrors, field) => {
+				if (!formState[field]) {
+					formErrors[field] = true;
+				}
+				return formErrors;
+			},
+			{}
+		);
+
+		setFormErrors(formErrors);
+		if (Object.values(formErrors).some((field) => field)) {
+			return;
+		}
 
 		try {
 			await saveVehicle({
@@ -83,9 +104,17 @@ export function ModalVehicleIU() {
 			property = 'value';
 		}
 
+		handleTouch(event.target.name);
 		setFormState((formState) => ({
 			...formState,
 			[event.target.name]: event.target[property],
+		}));
+	}
+
+	function handleTouch(target: string) {
+		setFormErrors((formErrors) => ({
+			...formErrors,
+			[target]: false,
 		}));
 	}
 
@@ -103,6 +132,9 @@ export function ModalVehicleIU() {
 							type="text"
 							value={formState.vehicle}
 							onChange={handleInputChange}
+							error={formErrors['vehicle']}
+							onFocus={() => handleTouch('vehicle')}
+							onClick={() => handleTouch('vehicle')}
 						/>
 						<TextField
 							id="brand"
@@ -111,6 +143,9 @@ export function ModalVehicleIU() {
 							type="text"
 							value={formState.brand}
 							onChange={handleInputChange}
+							error={formErrors['brand']}
+							onFocus={() => handleTouch('brand')}
+							onClick={() => handleTouch('brand')}
 						/>
 					</ControlGroup>
 
@@ -122,6 +157,9 @@ export function ModalVehicleIU() {
 							type="number"
 							value={formState.year}
 							onChange={handleInputChange}
+							error={formErrors['year']}
+							onFocus={() => handleTouch('year')}
+							onClick={() => handleTouch('year')}
 						/>
 						<FormControlLabel
 							control={
@@ -144,6 +182,9 @@ export function ModalVehicleIU() {
 						rows="6"
 						value={formState.description}
 						onChange={handleInputChange}
+						error={formErrors['description']}
+						onFocus={() => handleTouch('description')}
+						onClick={() => handleTouch('description')}
 					/>
 
 					<footer>
