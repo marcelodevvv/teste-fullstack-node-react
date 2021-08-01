@@ -3,6 +3,7 @@ import { Card } from '@material-ui/core';
 
 export const NoContent = styled(Card)`
 	&& {
+		height: 10px;
 		min-height: 100px;
 		padding: 12px 27px 12px 12px;
 

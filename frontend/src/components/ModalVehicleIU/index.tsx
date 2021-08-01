@@ -1,5 +1,6 @@
 import { FormEvent, useMemo, useState, useEffect, ChangeEvent } from 'react';
 import { FormControlLabel } from '@material-ui/core';
+import { toast } from 'react-toastify';
 
 import { Button } from '../Button';
 import { useVehicle } from '../../hooks/useVehicle';
@@ -53,9 +54,20 @@ export function ModalVehicleIU() {
 				id: editingVehicle?.id,
 				...formState,
 			});
+			toast.success('Veículo salvo com sucesso', {
+				position: 'top-right',
+				autoClose: 5000,
+				closeOnClick: true,
+				pauseOnHover: true,
+			});
 			handleCloseModal();
 		} catch (err) {
-			console.error(err);
+			toast.error(err.message, {
+				position: 'top-right',
+				autoClose: 5000,
+				closeOnClick: true,
+				pauseOnHover: true,
+			});
 		}
 	}
 

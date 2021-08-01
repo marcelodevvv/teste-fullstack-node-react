@@ -1,9 +1,12 @@
 import { useEffect } from 'react';
 import { AppProps } from 'next/app';
 import { ThemeProvider } from 'styled-components';
+import { ToastContainer } from 'react-toastify';
 
 import { GlobalStyle } from '../styles/global';
 import theme from '../styles/theme';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function App({ Component, pageProps }: AppProps) {
 	useEffect(() => {
@@ -17,6 +20,7 @@ export default function App({ Component, pageProps }: AppProps) {
 		<ThemeProvider theme={theme}>
 			<Component {...pageProps} />
 			<GlobalStyle />
+			<ToastContainer />
 		</ThemeProvider>
 	);
 }

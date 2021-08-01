@@ -42,6 +42,7 @@ export const Card = styled(CardUI)`
 			}
 
 			p {
+				white-space: pre-line;
 				margin-top: 30px;
 				font-size: 15px;
 				color: ${({ theme }) => theme.colors.gray['700']};
