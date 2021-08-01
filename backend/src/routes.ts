@@ -1,7 +1,10 @@
 import { Router } from 'express';
-import { CreateVehicleControllerFactory } from './app/factories/controllers/create-vehicle-controller-factory';
-import { FindVehiclesControllerFactory } from './app/factories/controllers/find-vehicles-controller-factory';
-import { LoadVehiclesControllerFactory } from './app/factories/controllers/load-vehicles-controller-factory';
+import {
+	CreateVehicleControllerFactory,
+	UpdateVehicleControllerFactory,
+	FindVehiclesControllerFactory,
+	LoadVehiclesControllerFactory,
+} from './app/factories/controllers';
 
 const router = Router();
 
@@ -15,6 +18,10 @@ router.get('/veiculos/find', (req, res) =>
 
 router.post('/veiculos', (req, res) =>
 	CreateVehicleControllerFactory().handle(req, res)
+);
+
+router.put('/veiculos/:id', (req, res) =>
+	UpdateVehicleControllerFactory().handle(req, res)
 );
 
 export { router };

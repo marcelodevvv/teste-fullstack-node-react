@@ -5,7 +5,7 @@ import { VehicleRepository } from '../../repositories/implementations';
 
 export function CreateVehicleControllerFactory(): IController {
 	const vehicleRepository = new VehicleRepository();
-	const dbCreateVehicle = new DbSaveVehicle(vehicleRepository);
-	const controller = new CreateVehicleController(dbCreateVehicle);
+	const dbSaveVehicle = new DbSaveVehicle(vehicleRepository);
+	const controller = new CreateVehicleController(dbSaveVehicle);
 	return controller;
 }
