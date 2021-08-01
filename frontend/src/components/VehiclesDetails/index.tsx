@@ -13,11 +13,15 @@ import { Button } from '../Button';
 import { NoContent } from '../NoContent';
 
 export function VehiclesDetails() {
-	const { vehicles, selectedVehicle } = useVehicle();
+	const { vehicles, selectedVehicle, editVehicle } = useVehicle();
 
 	const vehicle = useMemo(() => {
 		return vehicles.find((vehicle) => vehicle.id === selectedVehicle);
 	}, [vehicles, selectedVehicle]);
+
+	function handleEditClick() {
+		editVehicle(selectedVehicle);
+	}
 
 	return (
 		<Sticky>
@@ -43,7 +47,7 @@ export function VehiclesDetails() {
 						</div>
 
 						<footer>
-							<Button type="button">
+							<Button type="button" onClick={handleEditClick}>
 								<Image {...editImg} alt="Editar" />
 								<span>EDITAR</span>
 							</Button>
