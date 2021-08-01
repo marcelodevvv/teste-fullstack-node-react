@@ -17,6 +17,9 @@ const theme = {
 			'800': '#1d7555',
 		},
 	},
+	dimensions: {
+		borderMargin: '30px',
+	},
 };
 
 export default theme;
