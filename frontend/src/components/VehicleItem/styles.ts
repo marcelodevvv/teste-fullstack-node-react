@@ -8,6 +8,7 @@ interface ContainerProps {
 export const Container = styled(Card)<ContainerProps>`
 	&& {
 		cursor: pointer;
+		border-radius: 0;
 		margin-top: 10px;
 		padding: 12px 27px 12px 12px;
 		background: ${({ selected, theme }) =>

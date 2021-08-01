@@ -8,7 +8,8 @@ import { Sticky } from '../Sticky';
 
 import { useVehicle } from '../../hooks/useVehicle';
 
-import { Container, Card, FlexGrid, EditButton } from './styles';
+import { Container, Card, FlexGrid } from './styles';
+import { Button } from '../Button';
 import { NoContent } from '../NoContent';
 
 export function VehiclesDetails() {
@@ -42,10 +43,10 @@ export function VehiclesDetails() {
 						</div>
 
 						<footer>
-							<EditButton>
+							<Button type="button">
 								<Image {...editImg} alt="Editar" />
 								<span>EDITAR</span>
-							</EditButton>
+							</Button>
 
 							{vehicle.sold ? (
 								<Image {...tagSoldImg} alt="Vendido" />

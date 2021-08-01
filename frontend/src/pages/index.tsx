@@ -9,6 +9,7 @@ import { VehiclesList } from '../components/VehiclesList';
 import { VehiclesDetails } from '../components/VehiclesDetails';
 
 import { Container } from '../styles/pages/Home';
+import { ModalVehicleIU } from '../components/ModalVehicleIU';
 
 interface Vehicle {
 	id: string;
@@ -36,6 +37,8 @@ export default function Home({ vehicles }: HomeProps) {
 					</div>
 				</main>
 			</Container>
+
+			<ModalVehicleIU />
 		</VehicleProvider>
 	);
 }

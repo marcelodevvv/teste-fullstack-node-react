@@ -18,6 +18,8 @@ export const Container = styled.div`
 
 export const Card = styled(CardUI)`
 	&& {
+		border-radius: 0;
+
 		> div {
 			padding: 14px 10px 10px 10px;
 
@@ -54,6 +56,10 @@ export const Card = styled(CardUI)`
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
+
+			button {
+				padding-left: 20px;
+			}
 		}
 	}
 `;
@@ -65,26 +71,5 @@ export const FlexGrid = styled.div`
 		> * {
 			flex: 1;
 		}
-	}
-`;
-
-export const EditButton = styled.button`
-	padding: 13px 35px 13px 20px;
-	border: 0;
-	background: ${({ theme }) => theme.colors.gray['600']};
-	color: ${({ theme }) => theme.colors.gray['100']};
-	font-size: 17px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	cursor: pointer;
-	transition: background-color 0.2s;
-
-	&:hover {
-		background: ${({ theme }) => theme.colors.gray['800']};
-	}
-
-	> span {
-		margin-left: 20px;
 	}
 `;
