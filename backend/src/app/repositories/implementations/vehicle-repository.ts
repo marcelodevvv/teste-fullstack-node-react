@@ -1,20 +1,21 @@
 import {
-	IAddVehicleRepository,
 	ILoadVehiclesRepository,
 	IFindVehiclesRepository,
+	ISaveVehicleRepository,
 } from '../protocols';
+
 import { Vehicle } from '../../entities';
 import { VehicleModel } from '../../usecases/models';
-import { CreateVehicleParams } from '../../usecases/protocols';
+import { SaveVehicleParams } from '../../usecases/protocols';
 import { getRepository, Like } from 'typeorm';
 
 export class VehicleRepository
 	implements
-		IAddVehicleRepository,
+		ISaveVehicleRepository,
 		ILoadVehiclesRepository,
 		IFindVehiclesRepository
 {
-	async add(data: CreateVehicleParams): Promise<VehicleModel> {
+	async save(data: SaveVehicleParams): Promise<VehicleModel> {
 		const vehicle = await getRepository(Vehicle).save(data);
 		return vehicle;
 	}

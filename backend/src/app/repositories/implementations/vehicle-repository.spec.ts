@@ -22,7 +22,7 @@ describe('Vehicle Repository', () => {
 	});
 
 	it('Should add a new vehicle', async () => {
-		const vehicle = await sut.add({
+		const vehicle = await sut.save({
 			vehicle: 'any_vehicle',
 			brand: 'any_brand',
 			description: 'any_description',
@@ -34,13 +34,34 @@ describe('Vehicle Repository', () => {
 		expect(vehicle.id).toBeTruthy();
 	});
 
+	it('Should edit a existing vehicle', async () => {
+		const vehicle = await sut.save({
+			vehicle: 'any_vehicle',
+			brand: 'any_brand',
+			description: 'any_description',
+			sold: true,
+			year: 2010,
+		});
+
+		expect(vehicle).toHaveProperty('id');
+		expect(vehicle.id).toBeTruthy();
+		expect(vehicle.description).toBe('any_description');
+
+		const oldId = vehicle.id;
+		vehicle.description = 'another_description';
+		const editedVehicle = await sut.save(vehicle);
+
+		expect(vehicle.id).toBe(oldId);
+		expect(vehicle.description).toBe('another_description');
+	});
+
 	it('Should load all vehicles', async () => {
 		let vehicles;
 
 		vehicles = await sut.loadAll();
 		expect(vehicles).toEqual([]);
 
-		const vehicle1 = await sut.add({
+		const vehicle1 = await sut.save({
 			vehicle: 'any_vehicle1',
 			brand: 'any_brand1',
 			description: 'any_description1',
@@ -48,7 +69,7 @@ describe('Vehicle Repository', () => {
 			year: 2010,
 		});
 
-		const vehicle2 = await sut.add({
+		const vehicle2 = await sut.save({
 			vehicle: 'any_vehicle2',
 			brand: 'any_brand2',
 			description: 'any_description2',
@@ -69,7 +90,7 @@ describe('Vehicle Repository', () => {
 		vehicles = await sut.find('description');
 		expect(vehicles).toEqual([]);
 
-		await sut.add({
+		await sut.save({
 			vehicle: 'any_vehicle1',
 			brand: 'any_brand1',
 			description: 'any_description1',
@@ -77,7 +98,7 @@ describe('Vehicle Repository', () => {
 			year: 2011,
 		});
 
-		await sut.add({
+		await sut.save({
 			vehicle: 'any_vehicle2',
 			brand: 'any_brand2',
 			description: 'any_description2',
@@ -85,7 +106,7 @@ describe('Vehicle Repository', () => {
 			year: 2010,
 		});
 
-		await sut.add({
+		await sut.save({
 			vehicle: 'any_vehicle3',
 			brand: 'any_brand3',
 			description: 'any_description3',

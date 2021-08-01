@@ -1,9 +1,9 @@
 import { IController } from '../../protocols/controller';
-import { ICreateVehicle } from '../../../usecases/protocols';
+import { ISaveVehicle } from '../../../usecases/protocols';
 import { Request, Response } from 'express';
 
 export class CreateVehicleController implements IController {
-	constructor(private readonly createVehicle: ICreateVehicle) {}
+	constructor(private readonly saveVehicle: ISaveVehicle) {}
 
 	async handle(request: Request, response: Response) {
 		try {
@@ -25,7 +25,7 @@ export class CreateVehicleController implements IController {
 
 			const { vehicle, brand, year, sold, description } = request.body;
 
-			const vehicleModel = await this.createVehicle.execute({
+			const vehicleModel = await this.saveVehicle.execute({
 				vehicle,
 				brand,
 				year,
