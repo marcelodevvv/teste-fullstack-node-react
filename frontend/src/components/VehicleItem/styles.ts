@@ -7,17 +7,16 @@ interface ContainerProps {
 
 export const Container = styled(Card)<ContainerProps>`
 	&& {
+		cursor: pointer;
+		margin-top: 10px;
 		padding: 12px 27px 12px 12px;
 		background: ${({ selected, theme }) =>
 			selected ? theme.colors.gray['100'] : '#fff'};
+		transition: background-color 0.2s;
 
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-
-		& + & {
-			margin-top: 10px;
-		}
 
 		> div > span {
 			display: block;
@@ -35,6 +34,11 @@ export const Container = styled(Card)<ContainerProps>`
 			&.vehicle-year {
 				color: ${({ theme }) => theme.colors.gray['500']};
 			}
+		}
+
+		&:hover {
+			background: ${({ selected, theme }) =>
+				selected ? theme.colors.gray['100'] : '#F3F3F3'};
 		}
 	}
 `;

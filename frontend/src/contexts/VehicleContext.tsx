@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useState } from 'react';
 
-interface Vehicle {
+export interface Vehicle {
 	id: string;
 	vehicle: string;
 	brand: string;
@@ -16,6 +16,8 @@ interface VehicleProviderProps {
 
 interface VehicleContextData {
 	vehicles: Vehicle[];
+	selectedVehicle: string | null;
+	selectVehicle: (vehicleId: string) => void;
 }
 
 export const VehicleContext = createContext({} as VehicleContextData);
@@ -25,11 +27,16 @@ export function VehicleProvider({
 	staticVehicles = [],
 }: VehicleProviderProps) {
 	const [vehicles, setVehicles] = useState<Vehicle[]>(staticVehicles);
+	const [selectedVehicleId, setSelectedVehicleId] = useState<string | null>(
+		null
+	);
 
 	return (
 		<VehicleContext.Provider
 			value={{
 				vehicles,
+				selectedVehicle: selectedVehicleId,
+				selectVehicle: setSelectedVehicleId,
 			}}
 		>
 			{children}

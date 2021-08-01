@@ -6,7 +6,7 @@ import { NoContent } from '../NoContent';
 import { Container } from './styles';
 
 export function VehiclesList() {
-	const { vehicles } = useVehicle();
+	const { vehicles, selectVehicle, selectedVehicle } = useVehicle();
 
 	return (
 		<Container>
@@ -14,7 +14,12 @@ export function VehiclesList() {
 
 			{vehicles.length ? (
 				vehicles.map((vehicle) => (
-					<VehicleItem key={vehicle.id} vehicle={vehicle} />
+					<VehicleItem
+						key={vehicle.id}
+						vehicle={vehicle}
+						onVehicleClick={selectVehicle}
+						isSelected={selectedVehicle === vehicle.id}
+					/>
 				))
 			) : (
 				<NoContent>Ainda não há veículos adicionados</NoContent>

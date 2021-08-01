@@ -13,13 +13,21 @@ interface VehicleItemsProps {
 		year: number;
 		sold: boolean;
 	};
+	onVehicleClick: (vehicleId: string) => void;
+	isSelected: boolean;
 }
 
-export function VehicleItem({ vehicle }: VehicleItemsProps) {
-	const selected = false;
+export function VehicleItem({
+	vehicle,
+	onVehicleClick,
+	isSelected,
+}: VehicleItemsProps) {
+	function handleClick() {
+		onVehicleClick(vehicle.id);
+	}
 
 	return (
-		<Container selected={selected}>
+		<Container selected={isSelected} onClick={handleClick}>
 			<div>
 				<span className="vehicle-brand">{vehicle.brand}</span>
 				<span className="vehicle-name">{vehicle.vehicle}</span>

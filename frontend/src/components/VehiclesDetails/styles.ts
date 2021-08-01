@@ -33,6 +33,10 @@ export const Card = styled(CardUI)`
 				&.title {
 					color: ${({ theme }) => theme.colors.gray['800']};
 				}
+
+				&.brand-value {
+					text-transform: uppercase;
+				}
 			}
 
 			p {

@@ -10,7 +10,8 @@ export const NoContent = styled(Card)`
 		align-items: center;
 		justify-content: center;
 
-		font-size: 20px;
+		font-size: 16px;
 		color: ${({ theme }) => theme.colors.gray['300']};
+		text-align: center;
 	}
 `;
