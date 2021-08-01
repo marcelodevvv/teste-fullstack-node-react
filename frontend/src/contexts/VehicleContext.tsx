@@ -29,6 +29,7 @@ interface VehicleContextData {
 	addVehicle: () => void;
 	editVehicle: (vehicleId: string) => void;
 	saveVehicle: (vehicle: SaveVehicleParams) => Promise<void>;
+	searchVehicles: (query: string) => Promise<void>;
 }
 
 export const VehicleContext = createContext({} as VehicleContextData);
@@ -79,6 +80,29 @@ export function VehicleProvider({
 		}
 	}, []);
 
+	const handleSearchVehicles = useCallback(async (query: string) => {
+		try {
+			let vehicles: Vehicle[];
+
+			if (!query) {
+				const response = await api.get('veiculos');
+				vehicles = response.data.vehicles;
+			} else {
+				const response = await api.get('veiculos/find', {
+					params: {
+						query,
+					},
+				});
+				vehicles = response.data.vehicles;
+			}
+
+			setVehicles(vehicles);
+		} catch (err) {
+			console.error(err);
+			throw new Error('Falha ao buscar veículos');
+		}
+	}, []);
+
 	return (
 		<VehicleContext.Provider
 			value={{
@@ -90,6 +114,7 @@ export function VehicleProvider({
 				addVehicle: handleAddVehicle,
 				editVehicle: handleEditVehicle,
 				saveVehicle: handleSaveVehicle,
+				searchVehicles: handleSearchVehicles,
 			}}
 		>
 			{children}

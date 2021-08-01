@@ -22,7 +22,7 @@ export function VehiclesList() {
 					/>
 				))
 			) : (
-				<NoContent>Ainda não há veículos adicionados</NoContent>
+				<NoContent>Nenhum veículo encontrado</NoContent>
 			)}
 		</Container>
 	);

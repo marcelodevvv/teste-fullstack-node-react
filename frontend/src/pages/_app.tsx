@@ -20,7 +20,12 @@ export default function App({ Component, pageProps }: AppProps) {
 		<ThemeProvider theme={theme}>
 			<Component {...pageProps} />
 			<GlobalStyle />
-			<ToastContainer />
+			<ToastContainer
+				position="top-right"
+				autoClose={5000}
+				closeOnClick
+				pauseOnHover
+			/>
 		</ThemeProvider>
 	);
 }

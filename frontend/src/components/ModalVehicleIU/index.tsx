@@ -75,20 +75,10 @@ export function ModalVehicleIU() {
 				id: editingVehicle?.id,
 				...formState,
 			});
-			toast.success('Veículo salvo com sucesso', {
-				position: 'top-right',
-				autoClose: 5000,
-				closeOnClick: true,
-				pauseOnHover: true,
-			});
+			toast.success('Veículo salvo com sucesso');
 			handleCloseModal();
 		} catch (err) {
-			toast.error(err.message, {
-				position: 'top-right',
-				autoClose: 5000,
-				closeOnClick: true,
-				pauseOnHover: true,
-			});
+			toast.error(err.message);
 		}
 	}
 
