@@ -5,19 +5,28 @@ import tagSoldImg from '/public/tag_sold.svg';
 
 import { Container } from './styles';
 
-export function VehicleItem() {
-	const sold = false;
+interface VehicleItemsProps {
+	vehicle: {
+		id: string;
+		vehicle: string;
+		brand: string;
+		year: number;
+		sold: boolean;
+	};
+}
+
+export function VehicleItem({ vehicle }: VehicleItemsProps) {
 	const selected = false;
 
 	return (
 		<Container selected={selected}>
 			<div>
-				<span className="vehicle-brand">FIAT</span>
-				<span className="vehicle-name">Palio G5 SP.1.6 Flex</span>
-				<span className="vehicle-year">2016</span>
+				<span className="vehicle-brand">{vehicle.brand}</span>
+				<span className="vehicle-name">{vehicle.vehicle}</span>
+				<span className="vehicle-year">{vehicle.year}</span>
 			</div>
 
-			{sold ? (
+			{vehicle.sold ? (
 				<Image {...tagSoldImg} alt="Vendido" />
 			) : (
 				<Image {...tagImg} alt="Disponível" />

@@ -24,7 +24,7 @@ export const Container = styled(Card)<ContainerProps>`
 			line-height: 18px;
 
 			&.vehicle-brand {
-				text-decoration: uppercase;
+				text-transform: uppercase;
 				color: ${({ theme }) => theme.colors.gray['800']};
 			}
 

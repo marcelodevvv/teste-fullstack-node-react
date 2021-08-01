@@ -25,7 +25,7 @@ interface HomeProps {
 
 export default function Home({ vehicles }: HomeProps) {
 	return (
-		<VehicleProvider>
+		<VehicleProvider staticVehicles={vehicles}>
 			<Container>
 				<Header />
 				<main>
@@ -42,7 +42,7 @@ export default function Home({ vehicles }: HomeProps) {
 
 export const getStaticProps: GetStaticProps = async () => {
 	const response = await api.get('veiculos');
-	const vehicles = response.data;
+	const { vehicles } = response.data;
 
 	return {
 		props: {
