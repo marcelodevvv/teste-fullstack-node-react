@@ -123,4 +123,18 @@ describe('Vehicle Repository', () => {
 		vehicles = await sut.find('any_vehicle1');
 		expect(vehicles.length).toEqual(1);
 	});
+
+	it('Should find a specific vehicle by its id', async () => {
+		const createdVehicle = await sut.save({
+			vehicle: 'any_vehicle1',
+			brand: 'any_brand1',
+			description: 'any_description1',
+			sold: true,
+			year: 2011,
+		});
+
+		const searchedVehicles = await sut.find(createdVehicle.id);
+		expect(searchedVehicles.length).toEqual(1);
+		expect(searchedVehicles[0]).toEqual(createdVehicle);
+	});
 });

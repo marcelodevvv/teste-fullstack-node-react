@@ -34,7 +34,13 @@ export class VehicleRepository
 		}
 
 		const vehicles = await getRepository(Vehicle).find({
-			where: [{ vehicle: like }, { brand: like }, { description: like }, { year }],
+			where: [
+				{ id: query },
+				{ vehicle: like },
+				{ brand: like },
+				{ description: like },
+				{ year },
+			],
 		});
 
 		return vehicles;
