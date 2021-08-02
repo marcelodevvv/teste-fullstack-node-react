@@ -10,16 +10,23 @@ export function SearchInput() {
 	const { searchVehicles } = useVehicle();
 
 	const debouncedSearch = useMemo(
-		() => debounce(searchVehicles, 300, { maxWait: 1500 }),
+		() =>
+			debounce(
+				async (query: string) => {
+					try {
+						await searchVehicles(query);
+					} catch (err) {
+						toast.error(err.message);
+					}
+				},
+				300,
+				{ maxWait: 1500 }
+			),
 		[searchVehicles]
 	);
 
 	useEffect(() => {
-		try {
-			debouncedSearch(value);
-		} catch (err) {
-			toast.error(err.message);
-		}
+		debouncedSearch(value);
 	}, [debouncedSearch, value]);
 
 	return (
