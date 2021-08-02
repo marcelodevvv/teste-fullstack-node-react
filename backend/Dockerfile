@@ -1,11 +1,14 @@
 FROM node:alpine
 
 RUN apk add bash
+RUN yarn add global typescript
+RUN yarn add global ts-node-dev
 
 WORKDIR /usr/app
-COPY package.json yarn.lock ./
+COPY package.json ./
+COPY yarn.lock ./
 
-RUN yarn
+RUN yarn install
 
 COPY . .
 
