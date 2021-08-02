@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { GetStaticProps } from 'next';
 
 import { VehicleProvider } from '../contexts/VehicleContext';
@@ -26,20 +27,25 @@ interface HomeProps {
 
 export default function Home({ vehicles }: HomeProps) {
 	return (
-		<VehicleProvider staticVehicles={vehicles}>
-			<Container>
-				<Header />
-				<main>
-					<PageTitle title="Veículo" />
-					<div>
-						<VehiclesList />
-						<VehiclesDetails />
-					</div>
-				</main>
-			</Container>
+		<>
+			<Head>
+				<title>Fullstack</title>
+			</Head>
+			<VehicleProvider staticVehicles={vehicles}>
+				<Container>
+					<Header />
+					<main>
+						<PageTitle title="Veículo" />
+						<div>
+							<VehiclesList />
+							<VehiclesDetails />
+						</div>
+					</main>
+				</Container>
 
-			<ModalVehicleIU />
-		</VehicleProvider>
+				<ModalVehicleIU />
+			</VehicleProvider>
+		</>
 	);
 }
 
