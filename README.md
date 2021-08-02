@@ -41,9 +41,10 @@ DB_USER=admin
 DB_PASSWORD=admin
 ```
 
-2\. Ainda na pasta `backend`, execute-o:
+2\. Ainda na pasta `backend`, instale as depedências e execute-o:
 
 ```bash
+$ yarn
 $ yarn dev
 ```
 
@@ -60,9 +61,10 @@ API_URL=http://backend:3333
 
 > Obs: Se você não estiver usando **docker-compose**, defina as duas variáveis acima com o mesmo valor.
 
-4\. Ainda na pasta `frontend`, execute o app:
+4\. Ainda na pasta `frontend`, instale as dependências e execute o app:
 
 ```bash
+$ yarn
 $ yarn dev
 ```
 
