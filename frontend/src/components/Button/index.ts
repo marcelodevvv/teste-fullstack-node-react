@@ -7,6 +7,7 @@ export const Button = styled.button`
 	color: ${({ theme }) => theme.colors.gray['100']};
 	font-size: 17px;
 	display: flex;
+	flex-shrink: 1;
 	align-items: center;
 	justify-content: center;
 	cursor: pointer;

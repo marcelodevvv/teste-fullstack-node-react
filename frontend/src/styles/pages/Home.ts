@@ -15,4 +15,10 @@ export const Container = styled.div`
 			justify-content: space-between;
 		}
 	}
+
+	@media (max-width: 600px) {
+		main {
+			margin: 55px 5px 20px;
+		}
+	}
 `;

@@ -34,11 +34,13 @@ export function VehicleItem({
 				<span className="vehicle-year">{vehicle.year}</span>
 			</div>
 
-			{vehicle.sold ? (
-				<Image {...tagSoldImg} alt="Vendido" />
-			) : (
-				<Image {...tagImg} alt="Disponível" />
-			)}
+			<div className="image-container">
+				{vehicle.sold ? (
+					<Image {...tagSoldImg} alt="Vendido" />
+				) : (
+					<Image {...tagImg} alt="Disponível" />
+				)}
+			</div>
 		</Container>
 	);
 }

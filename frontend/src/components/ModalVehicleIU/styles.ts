@@ -11,6 +11,7 @@ export const Modal = styled(ModalUI)`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	overflow-y: scroll;
 `;
 
 export const Content = styled.div`
@@ -36,6 +37,10 @@ export const Content = styled.div`
 
 		> * {
 			margin-bottom: 56px;
+
+			@media (max-width: 600px) {
+				margin-bottom: 40px;
+			}
 		}
 	}
 
@@ -46,8 +51,26 @@ export const Content = styled.div`
 		justify-content: flex-end;
 
 		> * {
-			margin-left: 10px;
+			&:last-child {
+				margin-left: 10px;
+			}
+
+			@media (max-width: 600px) {
+				flex: 1;
+				width: 100px;
+				font-size: 14px;
+			}
 		}
+	}
+
+	@media (max-width: 600px) {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		margin: 0;
+		min-height: 100vh;
+		padding: 25px 18px;
 	}
 `;
 
@@ -59,6 +82,18 @@ export const ControlGroup = styled.div`
 
 		:first-child {
 			margin-right: 60px;
+		}
+	}
+
+	@media (max-width: 600px) {
+		display: block;
+		> * {
+			width: 100%;
+
+			:first-child {
+				margin-bottom: 40px;
+				margin-right: 0;
+			}
 		}
 	}
 `;

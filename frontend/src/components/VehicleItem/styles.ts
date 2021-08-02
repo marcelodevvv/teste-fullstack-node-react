@@ -37,6 +37,14 @@ export const Container = styled(Card)<ContainerProps>`
 			}
 		}
 
+		.image-container {
+			margin-left: 10px;
+			flex-shrink: 0;
+			display: flex;
+			align-items: center;
+			height: 100%;
+		}
+
 		&:hover {
 			background: ${({ selected, theme }) =>
 				selected ? theme.colors.gray['100'] : '#F3F3F3'};

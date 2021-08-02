@@ -16,4 +16,11 @@ export const StyledInput = styled.input`
 	::placeholder {
 		color: ${({ theme }) => theme.colors.gray['300']};
 	}
+
+	@media (max-width: 600px) {
+		width: 100%;
+		padding: 20px 22px;
+		margin-left: 0;
+		text-align: center;
+	}
 `;
